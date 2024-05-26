@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik ceny za wyjście do kina</title>
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: left;
+            width: 90%;
+            max-width: 500px;
+            color: #fff;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .container select, .container input[type="number"], .container input[type="checkbox"], .container input[type="radio"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #333;
+        }
+        .container input[type="checkbox"], .container input[type="radio"] {
+            width: auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #282c30;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #812288;
+        }
+        #totalPrice {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Przelicznik ceny za wyjście do kina</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+        </ul>
+    </nav>
+    <article>
+        <p><strong>Witamy na naszej stronie!</strong> Czy kiedykolwiek zastanawiałeś się, ile kosztuje wyjście do kina, uwzględniając wszystkie możliwe opcje? Nasz przelicznik ceny za wyjście do kina jest tutaj, aby Ci w tym pomóc. Dzięki temu narzędziu możesz łatwo obliczyć całkowity koszt biletów, przekąsek i innych opcji.</p>
+        <p><strong>Aby skorzystać z przelicznika, wykonaj następujące kroki:</strong></p>
+        <ol style="list-style-type:none;">
+            <li><strong>Wybierz film, na który chcesz się wybrać, z rozwijanej listy.</strong></li>
+            <li><strong>Wybierz rodzaj biletu (normalny lub ulgowy).</strong></li>
+            <li><strong>Określ liczbę osób (1 osoba, 2 osoby lub rodzina).</strong></li>
+            <li><strong>Opcjonalnie zaznacz, czy chcesz dodać przekąski (popcorn lub nachos).</strong></li>
+            <li><strong>Kliknij przycisk "Oblicz całkowitą cenę", aby zobaczyć całkowity koszt wyjścia do kina.</strong></li>
+        </ol>
+        <div class="container">
+            <label for="movie">Wybierz film:</label>
+            <select id="movie">
+                <option value="20">Avengers: Koniec gry - 20 PLN</option>
+                <option value="25">Incepcja - 25 PLN</option>
+                <option value="30">Skazani na Shawshank - 30 PLN</option>
+                <option value="35">Ojciec chrzestny - 35 PLN</option>
+                <option value="40">Pulp Fiction - 40 PLN</option>
+            </select>
+
+            <label for="ticketType">Rodzaj biletu:</label>
+            <input type="radio" id="normal" name="ticketType" value="0" checked> Normalny
+            <input type="radio" id="discounted" name="ticketType" value="-5"> Ulgowy
+
+            <label for="numberOfTickets">Liczba biletów:</label>
+            <select id="numberOfTickets">
+                <option value="1">1 osoba</option>
+                <option value="2">2 osoby</option>
+                <option value="3">Rodzina (3-4 osoby)</option>
+            </select>
+
+            <label for="snacks">Przekąski:</label>
+            <input type="checkbox" id="popcorn" name="snacks" value="10"> Popcorn - 10 PLN
+            <input type="checkbox" id="nachos" name="snacks" value="15"> Nachos - 15 PLN
+
+            <button onclick="calculateTotal()">Oblicz całkowitą cenę</button>
+            <p id="totalPrice">Całkowita cena: 0 PLN</p>
+        </div>
+
+        <script>
+            function calculateTotal() {
+                var moviePrice = parseInt(document.getElementById("movie").value);
+                var ticketTypeDiscount = parseInt(document.querySelector('input[name="ticketType"]:checked').value);
+                var numberOfTickets = document.getElementById("numberOfTickets").value;
+                var snacks = document.querySelectorAll('input[name="snacks"]:checked');
+                
+                var snacksTotal = 0;
+                snacks.forEach(function(snack) {
+                    snacksTotal += parseInt(snack.value);
+                });
+
+                var numberOfTicketsMultiplier = 1;
+                if (numberOfTickets === "2") {
+                    numberOfTicketsMultiplier = 2;
+                } else if (numberOfTickets === "3") {
+                    numberOfTicketsMultiplier = 3; 
+                }
+
+                var totalPrice = (moviePrice + ticketTypeDiscount) * numberOfTicketsMultiplier + snacksTotal;
+                document.getElementById("totalPrice").textContent = "Całkowita cena: " + totalPrice + " PLN";
+            }
+        </script>
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html"></iframe>
+    </aside>
+    <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br><br>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+    </footer>
+</body>
+</html>

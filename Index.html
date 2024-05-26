@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kino i Filmy</title>
+
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+        .image-button {
+            background: linear-gradient(to right, #3a00d0, #7e1dd2);
+            border: none;
+            color:linear-gradient(to right, #3a00d0, #7e1dd2);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        #img_browser {
+            text-align: center;
+            background-image: url(frame.png);
+            width: 590px;
+            height: 475px;
+            margin: 0 auto;
+            display: none;
+        }
+        #image {
+            height: 400px;
+            width: 400px;
+            margin-top: 60px;
+            border: 5px solid #ddd;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .nav-button {
+            background: linear-gradient(to right, #3a00d0, #7e1dd2);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var ImgNo = 0;
+        var Tab_Img = ["Plakat1.png", "Plakat2.png", "Plakat3.png", "Plakat4.png", "Plakat5.png"];
+
+        function Start() {
+            document.getElementById("img_browser").style.display = "none";
+        }
+
+        function ShowHide() {
+            var Img_Brow = document.getElementById("img_browser");
+            var Btn = document.getElementById("button");
+            if (Img_Brow.style.display === "none") {
+                Img_Brow.style.display = "block";
+                Btn.value = "Kliknij tutaj żeby ukryć przeglądarkę obrazów";
+            } else {
+                Img_Brow.style.display = "none";
+                Btn.value = "Kliknij tutaj żeby zobaczyć przeglądarkę obrazów";
+                ImgNo = 0;
+                document.getElementById("image").src = Tab_Img[ImgNo];
+            }
+        }
+
+        function Next() {
+            if (ImgNo < Tab_Img.length - 1) {
+                ImgNo++;
+                document.getElementById("image").src = Tab_Img[ImgNo];
+            } else {
+                document.getElementById("image").src = Tab_Img[Tab_Img.length - 1];
+                ImgNo = Tab_Img.length - 1;
+            }
+        }
+
+        function Prev() {
+            if (ImgNo > 0) {
+                ImgNo--;
+                document.getElementById("image").src = Tab_Img[ImgNo];
+            } else {
+                document.getElementById("image").src = Tab_Img[0];
+                ImgNo = 0;
+            }
+        }
+
+        function First() {
+            document.getElementById("image").src = Tab_Img[0];
+            ImgNo = 0;
+        }
+
+        function Last() {
+            document.getElementById("image").src = Tab_Img[Tab_Img.length - 1];
+            ImgNo = Tab_Img.length - 1;
+        }
+    </script>
+</head>
+<body onload="Start()">
+    <header style="background-color:rgb(21, 22, 22)">
+        <div id="logo">
+            <img src="logo.png" alt="Kino i Filmy Logo" />
+            <h1>~Tylko dla wkęconych w filmy~</h1>
+        </div>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <h2>Witam na Stronie K1N0W0</h2>
+        <section>
+            <p>
+                Cieszę się, że odwiedziłeś stronę kina K1N0W0 poświęconą naszemu kinie oraznajnowszym wydarzeniom i informacjom ze świata kina. Moim celem jest dostarczenie Ci aktualnych wiadomości, recenzji filmowych oraz informacji o premierach, abyś zawsze był na bieżąco z tym, co dzieje się w świecie filmu.
+            </p>
+            <p>
+                Niezależnie od tego, czy jesteś fanem hollywoodzkich superprodukcji, niezależnych filmów artystycznych, czy też kinowych klasyków, na tej stronie znajdziesz coś dla siebie. Zapraszam do eksploracji moich zasobów, czytania recenzji i dzielenia się swoimi opiniami.
+            </p>
+            <p>
+             Strona oferuje również przeglądarkę obrazów, gdzie możesz zobaczyć najnowsze plakaty filmowe. Aby skorzystać z przeglądarki, kliknij poniższy przycisk.
+            </p>
+            </section>
+            <p style="text-align:center;">
+            <input type="button" onclick="ShowHide()" id="button" class="image-button" value="Kliknij tutaj żeby zobaczyć przeglądarkę obrazów" />
+            <div id="img_browser">
+            <img src="Plakat1.png" id="image" />
+            <br /><br />
+            <button onclick="First()" class="nav-button">|⇐<br />Pierwszy</button>
+            <button onclick="Prev()" class="nav-button">⇐<br />Poprzedni</button>
+            <button onclick="Next()" class="nav-button">⇒<br />Następny</button>
+            <button onclick="Last()" class="nav-button">⇒|<br />Ostatni</button>
+            </div>
+            </p>
+            </article>
+            <aside>
+            <iframe src="Kontrolki_JS.html">
+            </iframe>
+            </aside>
+            <footer>
+            <hr>Autorem strony jest Kamil Gutkowski <br>
+            Mój numer albumu to: 157612 <br> <br> </hr>
+            Politechnika Poznańska <br>
+            Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+            </footer>
+            
+            </body>
+            </html>

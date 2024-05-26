@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <title>Prezentacja</title>
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+         .slide {
+            display: none;
+            width: 100%;
+            height: 80vh;
+            text-align: center;
+            background-color: #422121;
+            position: relative;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide h1 {
+            margin-top: 5vh;
+            font-size: 1em;
+        }
+        .slide img {
+            width: 60%; 
+            height: 60%; 
+            max-height: 60vh;
+            margin-top: 3vh;
+            border-radius: 8px;
+        }
+        </style>
+</head>
+<body>
+    <header style="background-color:aqua">
+        <h1>Sprawdź jakie trzy filmy są teraz najbardziej na czasie, i są najchętniej oglądane</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+
+        </ul>
+    </nav>
+    <article>
+            <h2> <marquee>Tier lista TOP 3 filmy</marquee>
+                <div class="slide active" id="slide1">
+                    <h1>Sprawdź trzy najchętniej oglądane przez klientów filmy!</h1>
+                    <h2>Przesuń za pomocą strzałek na klawiaturze</h2>
+                    <img src="Slajd1.png"/>
+                </div>
+                <div class="slide" id="slide2">
+                    <h1>Przed tobą lista TOP 3</h1>
+                    <p>Zapnij pasy, weź notes i zapisz swoje typy, być może powinieneś postawić na to u bukmachera???</p>
+                    <img src="Slajd2.png"/>
+                </div>
+                <div class="slide" id="slide3">
+                    <h1>Miejsce 3</h1>
+                    <p>Skazani na Shawshank</p>
+                    <img src="Slajd3.png"/>
+                </div>
+                <div class="slide" id="slide4">
+                    <h1>Miejsce 2</h1>
+                    <p>Scarface</p>
+                    <img src="Slajd4.png"/>
+                </div>
+                <div class="slide" id="slide5">
+                    <h1>Miejsce 1</h1>
+                    <p>Ojciec Chrzestny</p>
+                    <img src="Slajd5.png"/>
+                </div>
+                <script>
+                    var currentSlide = 1;
+                    var totalSlides = 5;
+            
+                    document.addEventListener('keydown', function(event) {
+                        if (event.key === 'ArrowRight') {
+                            nextSlide();
+                        } else if (event.key === 'ArrowLeft') {
+                            prevSlide();
+                        }
+                    });
+            
+                    function nextSlide() {
+                        if (currentSlide < totalSlides) {
+                            document.getElementById('slide' + currentSlide).classList.remove('active');
+                            currentSlide++;
+                            document.getElementById('slide' + currentSlide).classList.add('active');
+                        }
+                    }
+            
+                    function prevSlide() {
+                        if (currentSlide > 1) {
+                            document.getElementById('slide' + currentSlide).classList.remove('active');
+                            currentSlide--;
+                            document.getElementById('slide' + currentSlide).classList.add('active');
+                        }
+                    }
+                </script>
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html">
+        </iframe>
+    </aside>
+    <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br> <br> </hr>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+    </footer>
+</body>
+</html>

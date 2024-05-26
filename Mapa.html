@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>TIiSKwE</title>
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+        body {
+            text-align: center; 
+            font-weight: bold; 
+        }
+
+        figure {
+            display: inline-block;
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            margin: 0 auto; 
+        }
+
+        figure img {
+            border-radius: 10px;
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var obraz_1 = new Image();
+        var obraz_2 = new Image();
+        var obraz_3 = new Image();
+        var obraz_4 = new Image();
+        var obraz_5 = new Image();
+        var obraz_6 = new Image();
+        var obraz_7 = new Image();
+
+        obraz_1.src = "Plan1.png";
+        obraz_2.src = "Plan2.png";
+        obraz_3.src = "Sala1.png";
+        obraz_4.src = "Sala2.png";
+        obraz_5.src = "Sala3.png";
+        obraz_6.src = "Sala4.png";
+        obraz_7.src = "Wejscie.png";
+
+        function changeImage(newSrc) {
+            document.getElementById("kinoPlan").src = newSrc;
+        }
+
+        function revertImage() {
+            document.getElementById("kinoPlan").src = obraz_1.src;
+        }
+
+        function showAlert(event, message) {
+            event.preventDefault();
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <header style="background-color:aqua">
+        <h1>Mapa Kina</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <h2>Oto mapa Kina</h2>
+        <p>
+            <i>Sprawdź na planie kina miejsce którego szukasz.</i>
+        </p>
+        <figure>
+            <img id="kinoPlan" src="Plan1.png" name="Plan kina" usemap="#Plan_kina" />
+            <map name="Plan_kina">
+                <area target="Plan_kina" alt="brak danych" title="Plan kina" 
+                href="" coords="183,425,183,114,489,113,490,305,556,305,557,425" shape="poly"
+                onmouseover="changeImage(obraz_2.src)" onmouseout="changeImage(obraz_1.src)" 
+                onclick="showAlert(event, 'Witamy w kinie K1N0W0')" />
+            
+                <map name="Sala1">
+                    <area target="Sala1" alt="brak danych" title="Sala1" 
+                    href="" coords="0,426,181,258" shape="rect"
+                    onmouseover="changeImage(obraz_3.src)" onmouseout="changeImage(obraz_1.src)" 
+                    onclick="showAlert(event, 'Sala 1 posiada 68 miejsc')" />
+
+                <map name="Sala2">
+                    <area target="Sala2" alt="brak danych" title="Sala2"
+                     href="" coords="0,115,180,252" shape="rect"
+                     onmouseover="changeImage(obraz_4.src)" onmouseout="changeImage(obraz_1.src)" 
+                     onclick="showAlert(event, 'Sala 2 posiada 80 miejsc')" />
+                <map name="Sala3">
+                    <area target="Sala3" alt="brak danych" title="Sala3"
+                     href="" coords="0,110,488,-1" shape="rect"
+                     onmouseover="changeImage(obraz_5.src)" onmouseout="changeImage(obraz_1.src)" 
+                     onclick="showAlert(event, 'Sala 3 to nasza największa sala, posiada aż 200 miejsc')" />
+
+                <map name="Sala4">
+                    <area target="Sala4" alt="brak danych" title="Sala4"
+                     href="" coords="492,-1,600,301" shape="rect"
+                     onmouseover="changeImage(obraz_6.src)" onmouseout="changeImage(obraz_1.src)" 
+                     onclick="showAlert(event, 'Sala 4 posiada 140 miejsc')" />
+                <map name="Wejscie">
+                    <area target="Wejscie" alt="brak danych" title="Wejscie"
+                     href="" coords="558,299,598,426" shape="rect"
+                     onmouseover="changeImage(obraz_7.src)" onmouseout="changeImage(obraz_1.src)" 
+                     onclick="showAlert(event, 'To jest wejście do kina K1N0W0')" />
+            </map>
+        </figure>
+        <p style="font-weight: bold; text-align: center;">Tutaj możesz znaleźć mapę kina oraz informacje o poszczególnych salach kinowych. Zapraszamy do korzystania z naszej interaktywnej mapy!</p>
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html">
+        </iframe>
+    </aside>
+    <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br> <br> </hr>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+    </footer>
+</body>
+</html>

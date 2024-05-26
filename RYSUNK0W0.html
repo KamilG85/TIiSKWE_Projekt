@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rysowanie na Canvas</title>
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+        #canvasContainer {
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+        #controls {
+            margin: 20px;
+        }
+        button {
+            background: linear-gradient(to right, #3a00d0, #7e1dd2); 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RYSUNK0W0 ~ rysuj z K1N0W0</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <h2> Sprawdź obrazy jakie zostały przygotowane przez stronę K1N0W0</h2>
+        <div id="canvasContainer">
+            <canvas id="myCanvas" width="800" height="600"></canvas>
+        </div>
+        <div id="controls">
+            <button onclick="drawFilmReel()">Taśma filmowa</button>
+            <button onclick="drawCamera()">Kamera filmowa</button>
+            <button onclick="drawPopcorn()">Popcorn</button>
+            <button onclick="drawClapperboard()">Klaps filmowy</button>
+            <button onclick="drawScreen()">Ekran kinowy z zasłonami</button>
+            <button onclick="drawLogo()">Logo K1N0W0</button>
+            <button onclick="clearCanvas()">Wyczyść</button>
+        </div>
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html">
+        </iframe>
+        </aside>
+        <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br> <br> </hr>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+        </footer>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawCamera() {
+            clearCanvas();
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.fillRect(250, 250, 300, 150); 
+            ctx.strokeRect(250, 250, 300, 150); 
+            ctx.fillRect(500, 275, 100, 100); 
+            ctx.strokeRect(500, 275, 100, 100); 
+            ctx.arc(280, 230, 25, 0, Math.PI * 2, true); 
+            ctx.arc(370, 230, 25, 0, Math.PI * 2, true); 
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawClapperboard() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+           
+            ctx.fillStyle = 'black';
+            ctx.fillRect(200, 300, 300, 200);
+
+            
+            ctx.beginPath();
+            ctx.moveTo(200, 300);
+            ctx.lineTo(500, 300);
+            ctx.lineTo(450, 250);
+            ctx.lineTo(150, 250);
+            ctx.closePath();
+            ctx.fill();
+
+         
+            ctx.fillStyle = 'white';
+            for (let i = 0; i < 6; i++) {
+                ctx.beginPath();
+                ctx.moveTo(200 + (i * 50), 300);
+                ctx.lineTo(250 + (i * 50), 300);
+                ctx.lineTo(200 + (i * 50), 250);
+                ctx.lineTo(150 + (i * 50), 250);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        function drawScreen() {
+            clearCanvas();
+            ctx.fillStyle = '#000';
+            ctx.fillRect(100, 100, 600, 400); 
+            ctx.fillStyle = '#555';
+            ctx.fillRect(50, 100, 50, 400); 
+            ctx.fillRect(700, 100, 50, 400); 
+        }
+
+        function drawFilmReel() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'grey';
+            const reelRadius = 100;
+            ctx.beginPath();
+            ctx.arc(400, 300, reelRadius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = 'black';
+            for (let i = 0; i < 8; i++) {
+                const angle = i * (Math.PI / 4);
+                const x = 400 + Math.cos(angle) * 80;
+                const y = 300 + Math.sin(angle) * 80;
+                ctx.beginPath();
+                ctx.arc(x, y, 20, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.arc(400, 300, 20, 0, Math.PI * 2);
+            ctx.fill();
+
+           
+            ctx.fillStyle = 'black';
+            ctx.fillRect(200, 400, 200, 40);  
+            ctx.fillStyle = 'white';
+            for (let i = 0; i < 10; i++) {
+                ctx.fillRect(205 + i * 20, 405, 10, 30);
+            }
+        }
+        function drawPopcorn() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+           
+            ctx.fillStyle = 'red';
+            ctx.fillRect(350, 300, 100, 150);
+
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.moveTo(350, 449);
+            ctx.lineTo(370, 300);
+            ctx.lineTo(430, 300);
+            ctx.lineTo(450, 449);
+            ctx.closePath();
+            ctx.fill();
+
+            
+            ctx.fillStyle = 'red';
+            ctx.beginPath();
+            ctx.moveTo(370, 300);
+            ctx.lineTo(380, 450);
+            ctx.moveTo(390, 300);
+            ctx.lineTo(395, 450);
+            ctx.moveTo(410, 300);
+            ctx.lineTo(405, 450);
+            ctx.moveTo(430, 300);
+            ctx.lineTo(420, 450);
+            ctx.closePath();
+            ctx.stroke();
+
+            
+            ctx.fillStyle = 'yellow';
+            for (let i = 0; i < 10; i++) {
+                let x = 375 + Math.random() * 50;
+                let y = 280 + Math.random() * 20;
+                ctx.beginPath();
+                ctx.arc(x, y, 10, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawLogo() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const borderColor = '#9370DB'; 
+        const textColor = borderColor;
+        const arrowColor = borderColor;
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(200, 250, 400, 100);
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = 4;
+        ctx.strokeRect(200, 250, 400, 100);
+
+        ctx.strokeStyle = borderColor;
+        ctx.beginPath();
+        ctx.moveTo(400, 300); 
+        ctx.lineTo(300, 350); 
+        ctx.lineTo(300, 325); 
+        ctx.lineTo(200, 325); 
+        ctx.lineTo(200, 275); 
+        ctx.lineTo(300, 275); 
+        ctx.lineTo(300, 250); 
+        ctx.closePath(); 
+        ctx.stroke();
+
+        ctx.fillStyle = textColor;
+        ctx.font = 'bold 48px Arial';
+        ctx.fillText('K1N0W0', 400, 320); 
+
+        
+        ctx.beginPath();
+        ctx.closePath();
+    }
+    </script>
+</body>
+</html>

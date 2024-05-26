@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repertuar</title>
+<link rel="stylesheet" type="text/css" href="tlo.css" />
+    <style>
+        table {
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(to bottom, #49212e, #212121);
+    overflow-x: auto; 
+}
+
+th, td {
+    border: 1px solid #424040;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; 
+}
+        th {
+            background-color: #323131;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #2e2e2e;
+        }
+        tr:hover {
+            background-color: #424242;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color:rgb(110, 49, 75)">
+        <h1>Zapoznaj się z repertuarem kina!</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <div class="table-container">
+            <table id="filmTable">
+            <thead>
+                <tr>
+                    <th rowspan="2">Tytuł</th>
+                    <th rowspan="2">Rok produkcji</th>
+                    <th colspan="2">Oceny</th>
+                    <th rowspan="2">Czas trwania</th>
+                    <th rowspan="2">Gatunek</th>
+                    <th rowspan="2">Reżyser</th>
+                    <th rowspan="2">Obsada</th>
+                    <th colspan="2">Box Office</th>
+                    <th rowspan="2">Opis</th>
+                </tr>
+                <tr>
+                    <th>Krytyków</th>
+                    <th>Użytkowników</th>
+                    <th>Przychód</th>
+                    <th>Zysk netto</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+        <script>
+            
+            var movies = [
+            { title: "Avengers: Koniec gry", year: 2019, criticRating: 8.4, userRating: 8.5, duration: "3h 2min", genre: "Akcja", director: "Anthony Russo, Joe Russo", cast: "Robert Downey Jr., Chris Evans, Mark Ruffalo", boxOfficeRevenue: "$2,798,761,243", netProfit: "$1,242,761,243", description: "Avengers zjawiają się ponownie, aby cofnąć działania Thanosa i przywrócić porządek we wszechświecie." },
+{ title: "Incepcja", year: 2010, criticRating: 8.8, userRating: 8.7, duration: "2h 28min", genre: "Sci-Fi", director: "Christopher Nolan", cast: "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page", boxOfficeRevenue: "$828,322,032", netProfit: "$463,322,032", description: "Złodziej, który włamuje się do snów innych, by kraść sekrety z ich podświadomości, otrzymuje szansę na wymazanie swojej przestępczej przeszłości jako zapłatę za zaszczepienie pomysłu innej osoby w podświadomość celu." },
+{ title: "Skazani na Shawshank", year: 1994, criticRating: 9.3, userRating: 9.3, duration: "2h 22min", genre: "Dramat", director: "Frank Darabont", cast: "Tim Robbins, Morgan Freeman, Bob Gunton", boxOfficeRevenue: "$58,322,029", netProfit: "$20,023,084", description: "Dwaj skazani mężczyźni łączą się na przestrzeni wielu lat, znajdując ukojenie i ostateczne odkupienie poprzez wspólne czyny." },
+{ title: "Ojciec chrzestny", year: 1972, criticRating: 9.2, userRating: 9.3, duration: "2h 55min", genre: "Kryminał, Dramat", director: "Francis Ford Coppola", cast: "Marlon Brando, Al Pacino, James Caan", boxOfficeRevenue: "$246,120,986", netProfit: "$134,966,411", description: "Starzejący się patriarcha zorganizowanej mafii przekazuje kontrolę nad swoim  imperium swojemu synowi." },
+{ title: "Pulp Fiction", year: 1994, criticRating: 8.9, userRating: 8.9, duration: "2h 34min", genre: "Kryminał, Dramat", director: "Quentin Tarantino", cast: "John Travolta, Uma Thurman, Samuel L. Jackson", boxOfficeRevenue: "$214,179,088", netProfit: "$108,192,962", description: "Życie dwóch morderców na zlecenie, boksera, gangstera i jego żony oraz pary bandytów z dineru splata się w czterech opowieściach o przemocy i odkupieniu." },
+{ title: "Mroczny Rycerz", year: 2008, criticRating: 9.0, userRating: 9.0, duration: "2h 32min", genre: "Akcja, Kryminał, Dramat", director: "Christopher Nolan", cast: "Christian Bale, Heath Ledger, Aaron Eckhart", boxOfficeRevenue: "$1,005,457,641", netProfit: "$574,457,641", description: "Kiedy groźba znana jako Joker wyłania się ze swojej tajemniczej przeszłości, sieje spustoszenie i chaos wśród mieszkańców Gotham. Mroczny Rycerz musi podjąć jedno z największych testów psychologicznych i fizycznych swoich umiejętności do walki z niesprawiedliwościami." },
+{ title: "Lista Schindlera", year: 1993, criticRating: 8.9, userRating: 8.9, duration: "3h 15min", genre: "Biografia, Dramat, Historyczny", director: "Steven Spielberg", cast: "Liam Neeson, Ralph Fiennes, Ben Kingsley", boxOfficeRevenue: "$322,161,341", netProfit: "$179,831,527", description: "W okupowanej przez Niemców Polsce podczas II wojny światowej przemysłowiec Oskar Schindler stopniowo zaczyna martwić się o swoją żydowską pracownicę po świadectwie jej prześladowania przez nazistów." },
+{ title: "Forrest Gump", year: 1994, criticRating: 8.8, userRating: 8.9, duration: "2h 22min", genre: "Dramat, Romans", director: "Robert Zemeckis", cast: "Tom Hanks, Robin Wright, Gary Sinise", boxOfficeRevenue: "$678,226,634", netProfit: "$356,456,633", description: "Prezydentury Kennedy'ego i Johnsona, wojna w Wietnamie, afera Watergate i inne historyczne wydarzenia rozwijają się z perspektywy Alabamczyka o IQ 75, którego jedynym pragnieniem jest ponowne spotkanie z ukochaną z dzieciństwa." },
+{ title: "Matrix", year: 1999, criticRating: 8.7, userRating: 8.7, duration: "2h 16min", genre: "Akcja, Sci-Fi", director: "Lana Wachowski, Lilly Wachowski", cast: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss", boxOfficeRevenue: "$465,343,787", netProfit: "$292,032,145", description: "Haker komputerowy dowiaduje się od tajemniczych rebeliantów o prawdziwej naturze swojej rzeczywistości i swojej roli w wojnie przeciwko jej kontrolerom." },
+{ title: "Władca Pierścieni: Powrót Króla", year: 2003, criticRating: 8.9, userRating: 9.0, duration: "3h 21min", genre: "Akcja, Przygodowy, Dramat", director: "Peter Jackson", cast: "Elijah Wood, Viggo Mortensen, Ian McKellen", boxOfficeRevenue: "$1,142,219,401", netProfit: "$741,721,910", description: "Gandalf i Aragorn prowadzą Świat Ludzi przeciwko armii Saurona, aby odwrócić jego wzrok od Froda i Sama, gdy zbliżają się do Góry Przeznaczenia z Jednym Pierścieniem." }
+            
+        ];
+    
+            
+            function generateTable() {
+                var tableBody = document.getElementById("filmTable").getElementsByTagName('tbody')[0];
+                for (var i = 0; i < movies.length; i++) {
+                    var row = tableBody.insertRow();
+                    var titleCell = row.insertCell(0);
+                    var yearCell = row.insertCell(1);
+                    var criticRatingCell = row.insertCell(2);
+                    var userRatingCell = row.insertCell(3);
+                    var durationCell = row.insertCell(4);
+                    var genreCell = row.insertCell(5);
+                    var directorCell = row.insertCell(6);
+                    var castCell = row.insertCell(7);
+                    var boxOfficeRevenueCell = row.insertCell(8);
+                    var netProfitCell = row.insertCell(9);
+                    var descriptionCell = row.insertCell(10);
+
+                    titleCell.innerHTML = movies[i].title;
+                    yearCell.innerHTML = movies[i].year;
+                    criticRatingCell.innerHTML = movies[i].criticRating;
+                    userRatingCell.innerHTML = movies[i].userRating;
+                    durationCell.innerHTML = movies[i].duration;
+                    genreCell.innerHTML = movies[i].genre;
+                    directorCell.innerHTML = movies[i].director;
+                    castCell.innerHTML = movies[i].cast;
+                    boxOfficeRevenueCell.innerHTML = movies[i].boxOfficeRevenue;
+                    netProfitCell.innerHTML = movies[i].netProfit;
+                    descriptionCell.innerHTML = movies[i].description;
+                }
+            }
+    
+            
+            window.onload = function() {
+                generateTable();
+            };
+        </script>
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html">
+        </iframe>
+    </aside>
+    <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br> <br> </hr>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+    </footer>
+</body>
+</html>

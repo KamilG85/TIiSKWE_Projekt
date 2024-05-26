@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>TIiSKwE</title>
+    <link rel="stylesheet" type="text/css" href="tlo.css" />
+</head>
+<body>
+    <header>
+        <h1>Sprawdź jak długo będzie trwał twój seans</h1>
+    </header>
+    <nav>
+        <h2>Menu:</h2>
+        <ul>
+            <li><a href="Index.html" target="_self">Strona główna</a></li>
+            <li><a href="Aktualnosci.html" target="_self">Aktualności</a></li>
+            <li><a href="Przelicz.html" target="_self">Czas filmu</a></li>
+            <li><a href="Przelicznik1.html" target="_self">Cena za wyjście</a></li>
+            <li><a href="Formularz.html" target="_self">Formularz</a></li>
+            <li><a href="Prezentacja.html" target="_self">TOP 3</a></li>
+            <li><a href="Tabela.html" target="_self">Repertuar</a></li>
+            <li><a href="RYSUNK0W0.html" target="_self">RYSUNK0W0</a></li>
+            <li><a href="Mapa.html" target="_self">Mapa Kina</a></li>
+            <li><a href="Promo.html" target="_self">Promocje i konkursy</a></li>
+            <li><a href="FAQ.html" target="_self">FAQ</a></li>
+            
+        </ul>
+    </nav>
+    <article>
+        <h2>Lista filmów</h2>
+        <select id="movies">
+            <option value="120">Avengers Powrót</option>
+            <option value="134">Nowy Początek</option>
+            <option value="155">Misja na Marsa</option>
+        </select>
+        <button onclick="showMovieDuration()">Pokaż czas trwania</button>
+        <p id="movieDuration"></p>
+
+        <h3>Konwerter czasu:</h3>
+        <label for="timeInput">Podaj czas trwania twojego filmu (w minutach, sekundach lub dniach):</label>
+        <input type="number" id="timeInput" placeholder="np. 120">
+        <select id="timeUnit">
+            <option value="minutes">minuty</option>
+            <option value="seconds">sekundy</option>
+            <option value="days">dni</option>
+        </select>
+        <button onclick="convertTime()">Przelicz</button>
+        <p id="timeResult"></p>
+    
+        <script>
+            function showMovieDuration() {
+                var select = document.getElementById("movies");
+                var selectedOption = select.options[select.selectedIndex];
+                var duration = selectedOption.value;
+                var movieDurationElement = document.getElementById("movieDuration");
+                movieDurationElement.textContent = "Twój film trwa: " + duration + " minut.";
+            }
+
+            function convertTime() {
+                var timeInput = document.getElementById("timeInput").value;
+                var timeUnit = document.getElementById("timeUnit").value;
+
+                if (isNaN(timeInput)) {
+                    alert("Proszę podać liczbę całkowitą.");
+                    return;
+                }
+
+                var result = 0;
+                if (timeUnit === "minutes") {
+                    result = "Czas w sekundach: " + (timeInput * 60) + " s, Czas w dniach: " + (timeInput / 1440) + " dni.";
+                } else if (timeUnit === "seconds") {
+                    result = "Czas w minutach: " + (timeInput / 60) + " min, Czas w dniach: " + (timeInput / 86400) + " dni.";
+                } else if (timeUnit === "days") {
+                    result = "Czas w minutach: " + (timeInput * 1440) + " min, Czas w sekundach: " + (timeInput * 86400) + " s.";
+                }
+
+                var timeResult = document.getElementById("timeResult");
+                timeResult.textContent = result;
+            }
+        </script>
+        <img src="klepsydra.png" id="image" />
+    </article>
+    <aside>
+        <iframe src="Kontrolki_JS.html"></iframe>
+    </aside>
+    <footer>
+        <hr>Autorem strony jest Kamil Gutkowski <br>
+        Mój numer albumu to: 157612 <br><br></hr>
+        Politechnika Poznańska <br>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka. <br>
+    </footer>
+</body>
+</html>
